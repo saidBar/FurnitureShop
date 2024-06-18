@@ -78,11 +78,6 @@
 
 
 
-
-"
-
-
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineLeftTexture"
         android:layout_width="wrap_content"

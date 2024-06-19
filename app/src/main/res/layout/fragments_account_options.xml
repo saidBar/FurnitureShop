@@ -7,7 +7,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/blury_background"
+        android:src="@drawable/blurry_background"
         android:scaleType="centerCrop"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,13 +20,13 @@
             android:layout_height="wrap_content"
             style="@style/h3"
             android:layout_marginTop="120dp"
-            android:drawableStart="@drawable/ic_kleine_shape"
             android:drawablePadding="6dp"
             android:textStyle="bold"
+            app:drawableStartCompat="@drawable/ic_kleine_shape"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:text="Kleine." />
+            android:text="@string/appName" />
 
         <TextView
             android:id="@+id/tvRightAddressForShopping"
@@ -64,7 +64,7 @@
             app:layout_constraintStart_toStartOf="@id/tvQuality"
             app:layout_constraintEnd_toEndOf="@id/tvQuality"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:text="Register"
+            android:text="@string/register"
             />
 
         <androidx.appcompat.widget.AppCompatButton
@@ -76,7 +76,7 @@
             app:layout_constraintStart_toStartOf="@id/tvQuality"
             app:layout_constraintEnd_toEndOf="@id/tvQuality"
             android:layout_marginTop="10dp"
-            android:text="Login"
+            android:text="@string/login"
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

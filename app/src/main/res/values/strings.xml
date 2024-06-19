@@ -2,4 +2,9 @@
     <string name="app_name">Furniture Shop</string>
     <string name="rightAddress">The Right Address\nFor Shopping\nAnyday</string>
     <string name="quality">"It is now very easy to reach the\nbest quality among the\nproducts on the internet! "</string>
+    <string name="appName">Kleine.</string>
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+    <string name="start">Start</string>
+    <string name="let_s_login">Let\'s login</string>
 </resources>

@@ -17,7 +17,7 @@ class RegisterViewModel @Inject constructor (
     private val _register = MutableStateFlow<Resource<FirebaseUser>>(Resource.Loading())
     val register: Flow<Resource<FirebaseUser>> = _register
 
-    fun CreateAccountWithEmailAndPassword(user: User, password: String){
+    fun createAccountWithEmailAndPassword(user: User, password: String){
         firebaseAuth.createUserWithEmailAndPassword(user.Email, password)
             .addOnSuccessListener {
                 it.user?.let {

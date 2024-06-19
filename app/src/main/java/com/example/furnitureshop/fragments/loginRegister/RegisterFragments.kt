@@ -1,15 +1,23 @@
 package com.example.furnitureshop.fragments.loginRegister
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.activity.viewModels
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle.State.*
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.example.furnitureshop.R
+import com.example.furnitureshop.data.User
 import com.example.furnitureshop.databinding.FragmentsRegisterBinding
+import com.example.furnitureshop.util.Resource
 import com.example.furnitureshop.viewmodel.RegisterViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
+private const val TAG = "RegisterFragments"
 @AndroidEntryPoint
 class RegisterFragments : Fragment(R.layout.fragments_register) {
 
@@ -27,6 +35,40 @@ class RegisterFragments : Fragment(R.layout.fragments_register) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-    }
 
+        binding.apply {
+            buttonRegisterRegister.setOnClickListener {
+                val user = User(
+                    etFirstName.text.toString().trim(),
+                    etLastName.text.toString().trim(),
+                    etEmailRegister.text.toString().trim()
+                )
+                val password = etPasswordRegister.text.toString()
+                viewModel.createAccountWithEmailAndPassword(user, password)
+            }
+        }
+
+        viewLifecycleOwner.lifecycleScope.launch() {
+            lifecycle.repeatOnLifecycle(STARTED) {
+                viewModel.register.collect {
+                    when (it) {
+                        is Resource.Loading -> {
+                            binding.buttonRegisterRegister.startAnimation()
+                        }
+
+                        is Resource.Success -> {
+                            Log.d("test", it.data.toString())
+                            binding.buttonRegisterRegister.revertAnimation()
+                        }
+
+                        is Resource.Error -> {
+                            Log.d(TAG, it.message.toString())
+                            binding.buttonRegisterRegister.revertAnimation()
+                        }
+                    }
+                }
+            }
+
+        }
+    }
 }

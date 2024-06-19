@@ -2,9 +2,9 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     id("kotlin-parcelize")
-    // id("com.google.dagger.hilt.android")
     id ("com.google.gms.google-services")
-    // id("kotlin-kapt")
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -40,10 +40,6 @@ android {
     buildFeatures {
         viewBinding = true
     }
-//    // Allow references to generated code
-//    kapt {
-//        correctErrorTypes = true
-//    }
 }
 
 dependencies {
@@ -59,9 +55,10 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation("com.google.dagger:hilt-android:2.44")
+    kapt("com.google.dagger:hilt-android-compiler:2.44")
 
-    implementation("com.google.dagger:hilt-android:2.51.1")
-    // kapt("com.google.dagger:hilt-android-compiler:2.44.2")
+
     //loading button
     implementation ("br.com.simplepass:loading-button-android:2.2.0")
 
@@ -78,4 +75,8 @@ dependencies {
     // Firebase
     implementation(libs.firebase.auth)
 
+}
+// Allow references to generated code
+kapt {
+    correctErrorTypes = true
 }

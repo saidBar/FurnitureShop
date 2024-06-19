@@ -65,6 +65,7 @@ class RegisterFragments : Fragment(R.layout.fragments_register) {
                             Log.d(TAG, it.message.toString())
                             binding.buttonRegisterRegister.revertAnimation()
                         }
+                        else -> Unit
                     }
                 }
             }

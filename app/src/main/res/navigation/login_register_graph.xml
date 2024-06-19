@@ -1,6 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/login_register_graph">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_register_graph"
+    app:startDestination="@id/registerFragments">
+    <fragment
+        android:id="@+id/introductionFragments2"
+        android:name="com.example.furnitureshop.fragments.loginRegister.IntroductionFragments"
+        android:label="IntroductionFragments"
+        tools:layout="@layout/fragments_introduction">
 
+        <action
+            android:id="@+id/action_introductionFragments2_to_accountOptionsFragments"
+            app:destination="@id/accountOptionsFragments" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragments"
+        android:name="com.example.furnitureshop.fragments.loginRegister.LoginFragments"
+        android:label="LoginFragments"
+        tools:layout="@layout/fragments_login">
+        <action
+            android:id="@+id/action_loginFragments_to_registerFragments"
+            app:destination="@id/registerFragments" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragments"
+        android:name="com.example.furnitureshop.fragments.loginRegister.RegisterFragments"
+        android:label="RegisterFragments"
+        tools:layout="@layout/fragments_register">
+        <action
+            android:id="@+id/action_registerFragments_to_loginFragments"
+            app:destination="@id/loginFragments" />
+    </fragment>
+    <fragment
+        android:id="@+id/accountOptionsFragments"
+        android:name="com.example.furnitureshop.fragments.loginRegister.AccountOptionsFragments"
+        android:label="AccountOptionsFragments"
+        tools:layout="@layout/fragments_account_options">
+        <action
+            android:id="@+id/action_accountOptionsFragments_to_loginFragments"
+            app:destination="@id/loginFragments" />
+        <action
+            android:id="@+id/action_accountOptionsFragments_to_registerFragments"
+            app:destination="@id/registerFragments" />
+    </fragment>
 </navigation>

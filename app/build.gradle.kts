@@ -37,6 +37,9 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        viewBinding = true
+    }
 //    // Allow references to generated code
 //    kapt {
 //        correctErrorTypes = true
@@ -68,4 +71,8 @@ dependencies {
     // stepView
     implementation("com.shuhart.stepview:stepview:1.5.1")
     // kapt ("com.github.bumptech.glide:compiler:4.15.1")
+
+    // Firebase
+    implementation(libs.firebase.auth)
+
 }

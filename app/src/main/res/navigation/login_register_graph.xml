@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/login_register_graph"
-    app:startDestination="@id/registerFragments">
+    app:startDestination="@id/introductionFragments2">
     <fragment
         android:id="@+id/introductionFragments2"
         android:name="com.example.furnitureshop.fragments.loginRegister.IntroductionFragments"
@@ -21,7 +21,8 @@
         tools:layout="@layout/fragments_login">
         <action
             android:id="@+id/action_loginFragments_to_registerFragments"
-            app:destination="@id/registerFragments" />
+            app:destination="@id/registerFragments"
+            app:popUpTo="@id/accountOptionsFragments" />
     </fragment>
     <fragment
         android:id="@+id/registerFragments"
@@ -30,7 +31,8 @@
         tools:layout="@layout/fragments_register">
         <action
             android:id="@+id/action_registerFragments_to_loginFragments"
-            app:destination="@id/loginFragments" />
+            app:destination="@id/loginFragments"
+            app:popUpTo="@id/accountOptionsFragments" />
     </fragment>
     <fragment
         android:id="@+id/accountOptionsFragments"

@@ -7,9 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.Lifecycle.State.*
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import com.example.furnitureshop.R
 import com.example.furnitureshop.com.example.furnitureshop.util.RegisterValidation
 import com.example.furnitureshop.data.User
@@ -31,6 +33,7 @@ class RegisterFragments : Fragment(R.layout.fragments_register) {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+
     ): View {
         binding = FragmentsRegisterBinding.inflate(inflater)
         return binding.root
@@ -39,6 +42,9 @@ class RegisterFragments : Fragment(R.layout.fragments_register) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.tvDoYouHaveAccount.setOnClickListener {
+            findNavController().navigate(R.id.action_registerFragments_to_loginFragments)
+        }
         binding.apply {
             buttonRegisterRegister.setOnClickListener {
                 val user = User(
@@ -51,8 +57,8 @@ class RegisterFragments : Fragment(R.layout.fragments_register) {
             }
         }
 
-        viewLifecycleOwner.lifecycleScope.launch() {
-            lifecycle.repeatOnLifecycle(STARTED) {
+        viewLifecycleOwner.lifecycleScope.launch{
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.register.collect {
                     when (it) {
                         is Resource.Loading -> {
@@ -65,26 +71,23 @@ class RegisterFragments : Fragment(R.layout.fragments_register) {
                         }
 
                         is Resource.Error -> {
-                            Log.d(TAG, it.message.toString())
+                            Log.e(TAG, it.message.toString())
                             binding.buttonRegisterRegister.revertAnimation()
                         }
 
                         else -> Unit
                     }
                 }
-            }
-            viewLifecycleOwner.lifecycleScope.launch {
-                lifecycle.repeatOnLifecycle(STARTED) {
-                    viewModel.validation.collect() { validation ->
-                        if (validation.email is RegisterValidation.Failed) withContext(Dispatchers.Main) {
-                            binding.etEmailRegister.apply {
-                                error = validation.email.message
-                            }
+                viewModel.validation.collect() { validation ->
+                    if (validation.email is RegisterValidation.Failed) withContext(Dispatchers.Main) {
+                        binding.etEmailRegister.apply {
+                            requestFocus()
+                            error = validation.email.message
                         }
-                        if (validation.password is RegisterValidation.Failed) withContext(Dispatchers.Main) {
-                            binding.etPasswordRegister.apply {
-                                error = validation.password.message
-                            }
+                    }
+                    if (validation.password is RegisterValidation.Failed) withContext(Dispatchers.Main) {
+                        binding.etPasswordRegister.apply {
+                            error = validation.password.message
                         }
                     }
                 }

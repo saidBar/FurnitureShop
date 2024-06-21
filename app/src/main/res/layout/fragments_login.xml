@@ -7,6 +7,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:importantForAccessibility="no"
         android:src="@drawable/blurry_background"
         android:scaleType="centerCrop"/>
 
@@ -50,7 +51,7 @@
             android:layout_marginStart="12dp"
             android:layout_marginTop="20dp"
             android:gravity="center"
-            android:text="Don't have an account yet? Register here"
+            android:text="@string/don_t_have_an_account_yet_register_here"
             android:textAlignment="center"
             app:layout_constraintStart_toStartOf="@+id/guidelineLoginLeft"
             app:layout_constraintTop_toBottomOf="@+id/tvLetsLogin" />
@@ -59,11 +60,12 @@
             android:id="@+id/etEmailLogin"
             android:layout_width="0dp"
             android:layout_height="@dimen/editTextHeight"
+            android:importantForAutofill="no"
             app:layout_constraintStart_toStartOf="@id/guidelineLoginLeft"
             app:layout_constraintEnd_toEndOf="@id/guidelineLoginRight"
             app:layout_constraintTop_toBottomOf="@id/tvDontHaveAccountYet"
             style="@style/editText"
-            android:hint="Email"
+            android:hint="@string/email"
             android:inputType="textEmailAddress"
             android:layout_marginTop="50dp"/>
 
@@ -71,11 +73,12 @@
             android:id="@+id/etPasswordLogin"
             android:layout_width="0dp"
             android:layout_height="@dimen/editTextHeight"
+            android:importantForAutofill="no"
             app:layout_constraintStart_toStartOf="@id/guidelineLoginLeft"
             app:layout_constraintEnd_toEndOf="@id/guidelineLoginRight"
             app:layout_constraintTop_toBottomOf="@id/etEmailLogin"
             style="@style/editText"
-            android:hint="Password"
+            android:hint="@string/password"
             android:inputType="textPassword"
             android:layout_marginTop="15dp"/>
 
@@ -86,13 +89,13 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:gravity="center"
-            android:text="Forgot password? Click here"
+            android:text="@string/forgot_password_click_here"
             android:textAlignment="center"
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@+id/guidelineLoginLeft"
             app:layout_constraintTop_toBottomOf="@+id/etPasswordLogin" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
             android:id="@+id/buttonLoginLogin"
             android:layout_width="0dp"
             android:layout_height="@dimen/mediumButtonHeight"
@@ -102,6 +105,7 @@
             app:layout_constraintEnd_toEndOf="@id/guidelineLoginRight"
             android:layout_marginTop="15dp"
             android:text="@string/login"
+            android:textColor="@color/white"
             />
 
         <ImageView
@@ -116,7 +120,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Facebook"
+            android:text="@string/facebook"
             app:layout_constraintStart_toStartOf="@id/facebookLogin"
             app:layout_constraintTop_toTopOf="@id/facebookLogin"
             app:layout_constraintBottom_toBottomOf="@id/facebookLogin"
@@ -128,6 +132,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="13dp"
+            android:importantForAccessibility="no"
             app:layout_constraintEnd_toEndOf="@id/guidelineLoginRight"
             app:layout_constraintTop_toBottomOf="@id/buttonLoginLogin"
             android:src="@drawable/google_login"/>
@@ -135,7 +140,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Google"
+            android:text="@string/google"
             app:layout_constraintStart_toStartOf="@id/googleLogin"
             app:layout_constraintTop_toTopOf="@id/googleLogin"
             app:layout_constraintBottom_toBottomOf="@id/googleLogin"

@@ -17,4 +17,8 @@
     <string name="google">Google</string>
     <string name="don_t_have_an_account_yet_register_here">Don\'t have an account yet? Register here</string>
     <string name="forgot_password_click_here">Forgot password? Click here</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="we_will_send_you_a_link_to_reset_your_password">We will send you a link to reset your password</string>
+    <string name="cancel">Cancel</string>
+    <string name="send">Sendl</string>
 </resources>

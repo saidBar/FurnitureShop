@@ -13,9 +13,11 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.example.furnitureshop.R
 import com.example.furnitureshop.activities.ShoppingActivity
+import com.example.furnitureshop.com.example.furnitureshop.dialog.setupBottomSheetDialog
 import com.example.furnitureshop.com.example.furnitureshop.viewmodel.LoginViewModel
 import com.example.furnitureshop.databinding.FragmentsLoginBinding
 import com.example.furnitureshop.util.Resource
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -46,6 +48,31 @@ class LoginFragments : Fragment(R.layout.fragments_login) {
                  val password = etPasswordLogin.text.toString()
                  viewModel.login(email, password)
              }
+        }
+
+        binding.tvForgotPasswordLogin.setOnClickListener {
+            setupBottomSheetDialog { email ->
+                viewModel.resetPassword(email)
+            }
+        }
+
+        lifecycleScope.launch {
+            repeatOnLifecycle(STARTED) {
+                viewModel.resetPassword.collect {
+                    when (it) {
+                        is Resource.Loading -> {
+
+                        }
+                        is Resource.Success -> {
+                            Snackbar.make(requireView(), "Reset link sent to your email", Snackbar.LENGTH_LONG).show()
+                        }
+                        is Resource.Error -> {
+                            Snackbar.make(requireView(), "Error: ${it.message}", Snackbar.LENGTH_LONG).show()
+                        }
+                        else -> Unit
+                    }
+                }
+            }
         }
 
         viewLifecycleOwner.lifecycleScope.launch {

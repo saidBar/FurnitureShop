@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:importantForAccessibility="no"
         android:src="@drawable/blurry_background"
-        android:scaleType="centerCrop"/>
+        android:scaleType="centerCrop" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -67,7 +67,7 @@
             style="@style/editText"
             android:hint="@string/email"
             android:inputType="textEmailAddress"
-            android:layout_marginTop="50dp"/>
+            android:layout_marginTop="50dp" />
 
         <EditText
             android:id="@+id/etPasswordLogin"
@@ -80,7 +80,7 @@
             style="@style/editText"
             android:hint="@string/password"
             android:inputType="textPassword"
-            android:layout_marginTop="15dp"/>
+            android:layout_marginTop="15dp" />
 
         <TextView
             android:id="@+id/tvForgotPasswordLogin"
@@ -105,8 +105,7 @@
             app:layout_constraintEnd_toEndOf="@id/guidelineLoginRight"
             android:layout_marginTop="15dp"
             android:text="@string/login"
-            android:textColor="@color/white"
-            />
+            android:textColor="@color/white" />
 
         <ImageView
             android:id="@+id/facebookLogin"
@@ -115,7 +114,7 @@
             android:layout_marginTop="13dp"
             app:layout_constraintStart_toStartOf="@id/guidelineLoginLeft"
             app:layout_constraintTop_toBottomOf="@id/buttonLoginLogin"
-            android:src="@drawable/facebook_login"/>
+            android:src="@drawable/facebook_login" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -124,7 +123,7 @@
             app:layout_constraintStart_toStartOf="@id/facebookLogin"
             app:layout_constraintTop_toTopOf="@id/facebookLogin"
             app:layout_constraintBottom_toBottomOf="@id/facebookLogin"
-            app:layout_constraintEnd_toEndOf="@id/facebookLogin"/>
+            app:layout_constraintEnd_toEndOf="@id/facebookLogin" />
 
 
         <ImageView
@@ -135,7 +134,7 @@
             android:importantForAccessibility="no"
             app:layout_constraintEnd_toEndOf="@id/guidelineLoginRight"
             app:layout_constraintTop_toBottomOf="@id/buttonLoginLogin"
-            android:src="@drawable/google_login"/>
+            android:src="@drawable/google_login" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -144,7 +143,7 @@
             app:layout_constraintStart_toStartOf="@id/googleLogin"
             app:layout_constraintTop_toTopOf="@id/googleLogin"
             app:layout_constraintBottom_toBottomOf="@id/googleLogin"
-            app:layout_constraintEnd_toEndOf="@id/googleLogin"/>
+            app:layout_constraintEnd_toEndOf="@id/googleLogin" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guidelineLoginLeft"

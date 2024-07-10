@@ -57,7 +57,7 @@ class RegisterFragments : Fragment(R.layout.fragments_register) {
             }
         }
 
-        viewLifecycleOwner.lifecycleScope.launch{
+        viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.register.collect {
                     when (it) {

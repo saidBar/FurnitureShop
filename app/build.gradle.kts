@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     id("kotlin-parcelize")
-    id ("com.google.gms.google-services")
+    id("com.google.gms.google-services")
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
 }
@@ -63,7 +63,7 @@ dependencies {
 
 
     //loading button
-    implementation ("br.com.simplepass:loading-button-android:2.2.0")
+    implementation("br.com.simplepass:loading-button-android:2.2.0")
 
     // Glide
     implementation("com.github.bumptech.glide:glide:4.16.0")

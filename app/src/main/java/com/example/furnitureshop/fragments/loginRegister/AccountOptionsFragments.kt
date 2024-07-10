@@ -1,4 +1,5 @@
 package com.example.furnitureshop.fragments.loginRegister
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -24,11 +25,11 @@ class AccountOptionsFragments : Fragment(R.layout.fragments_account_options) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.buttonLoginAccountOptions.setOnClickListener{
+        binding.buttonLoginAccountOptions.setOnClickListener {
             findNavController().navigate(R.id.action_accountOptionsFragments_to_loginFragments)
         }
 
-        binding.buttonRegisterAccountOptions.setOnClickListener{
+        binding.buttonRegisterAccountOptions.setOnClickListener {
             findNavController().navigate(R.id.action_accountOptionsFragments_to_registerFragments)
         }
     }

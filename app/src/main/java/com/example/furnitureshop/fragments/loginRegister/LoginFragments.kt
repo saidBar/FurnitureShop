@@ -1,4 +1,5 @@
 package com.example.furnitureshop.fragments.loginRegister
+
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -43,11 +44,11 @@ class LoginFragments : Fragment(R.layout.fragments_login) {
         }
 
         binding.apply {
-             buttonLoginLogin.setOnClickListener {
-                 val email = etEmailLogin.text.toString().trim()
-                 val password = etPasswordLogin.text.toString()
-                 viewModel.login(email, password)
-             }
+            buttonLoginLogin.setOnClickListener {
+                val email = etEmailLogin.text.toString().trim()
+                val password = etPasswordLogin.text.toString()
+                viewModel.login(email, password)
+            }
         }
 
         binding.tvForgotPasswordLogin.setOnClickListener {
@@ -63,12 +64,23 @@ class LoginFragments : Fragment(R.layout.fragments_login) {
                         is Resource.Loading -> {
 
                         }
+
                         is Resource.Success -> {
-                            Snackbar.make(requireView(), "Reset link sent to your email", Snackbar.LENGTH_LONG).show()
+                            Snackbar.make(
+                                requireView(),
+                                "Reset link sent to your email",
+                                Snackbar.LENGTH_LONG
+                            ).show()
                         }
+
                         is Resource.Error -> {
-                            Snackbar.make(requireView(), "Error: ${it.message}", Snackbar.LENGTH_LONG).show()
+                            Snackbar.make(
+                                requireView(),
+                                "Error: ${it.message}",
+                                Snackbar.LENGTH_LONG
+                            ).show()
                         }
+
                         else -> Unit
                     }
                 }
@@ -82,17 +94,20 @@ class LoginFragments : Fragment(R.layout.fragments_login) {
                         is Resource.Loading -> {
                             binding.buttonLoginLogin.startAnimation()
                         }
+
                         is Resource.Success -> {
                             binding.buttonLoginLogin.revertAnimation()
-                            Intent(requireActivity(), ShoppingActivity::class.java).also {intent ->
+                            Intent(requireActivity(), ShoppingActivity::class.java).also { intent ->
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                                 startActivity(intent)
                             }
                         }
+
                         is Resource.Error -> {
                             Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
                             binding.buttonLoginLogin.revertAnimation()
                         }
+
                         else -> Unit
                     }
                 }

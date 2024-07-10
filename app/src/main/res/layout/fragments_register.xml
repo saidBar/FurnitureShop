@@ -9,7 +9,7 @@
         android:layout_height="match_parent"
         android:importantForAccessibility="no"
         android:src="@drawable/blurry_background"
-        android:scaleType="centerCrop"/>
+        android:scaleType="centerCrop" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -68,8 +68,7 @@
             style="@style/editText"
             android:hint="@string/first_name"
             android:inputType="textPersonName"
-            android:layout_marginTop="50dp"
-            />
+            android:layout_marginTop="50dp" />
 
         <EditText
             android:id="@+id/etLastName"
@@ -82,8 +81,8 @@
             style="@style/editText"
             android:hint="@string/last_name"
             android:inputType="textPersonName"
-            android:layout_marginTop="15dp"
-            />
+            android:layout_marginTop="15dp" />
+
         <EditText
             android:id="@+id/etEmailRegister"
             android:layout_width="0dp"
@@ -95,7 +94,7 @@
             style="@style/editText"
             android:hint="@string/email"
             android:inputType="textEmailAddress"
-            android:layout_marginTop="15dp"/>
+            android:layout_marginTop="15dp" />
 
         <EditText
             android:id="@+id/etPasswordRegister"
@@ -108,7 +107,7 @@
             style="@style/editText"
             android:hint="@string/password"
             android:inputType="textPassword"
-            android:layout_marginTop="15dp"/>
+            android:layout_marginTop="15dp" />
 
 
         <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
@@ -121,7 +120,7 @@
             app:layout_constraintEnd_toEndOf="@id/guidelineRegisterRight"
             android:layout_marginTop="15dp"
             android:text="@string/register"
-            app:spinning_bar_color="@color/white"/>
+            app:spinning_bar_color="@color/white" />
 
         <ImageView
             android:id="@+id/facebookLogin"
@@ -131,7 +130,7 @@
             android:importantForAccessibility="no"
             app:layout_constraintStart_toStartOf="@id/guidelineRegisterLeft"
             app:layout_constraintTop_toBottomOf="@id/buttonRegisterRegister"
-            android:src="@drawable/facebook_login"/>
+            android:src="@drawable/facebook_login" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -140,7 +139,7 @@
             app:layout_constraintStart_toStartOf="@id/facebookLogin"
             app:layout_constraintTop_toTopOf="@id/facebookLogin"
             app:layout_constraintBottom_toBottomOf="@id/facebookLogin"
-            app:layout_constraintEnd_toEndOf="@id/facebookLogin"/>
+            app:layout_constraintEnd_toEndOf="@id/facebookLogin" />
 
 
         <ImageView
@@ -151,7 +150,7 @@
             android:importantForAccessibility="no"
             app:layout_constraintEnd_toEndOf="@id/guidelineRegisterRight"
             app:layout_constraintTop_toBottomOf="@id/buttonRegisterRegister"
-            android:src="@drawable/google_login"/>
+            android:src="@drawable/google_login" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -160,23 +159,22 @@
             app:layout_constraintStart_toStartOf="@id/googleLogin"
             app:layout_constraintTop_toTopOf="@id/googleLogin"
             app:layout_constraintBottom_toBottomOf="@id/googleLogin"
-            app:layout_constraintEnd_toEndOf="@id/googleLogin"/>
-
+            app:layout_constraintEnd_toEndOf="@id/googleLogin" />
 
 
         <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guidelineRegisterLeft"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.09" />
+            android:id="@+id/guidelineRegisterLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.09" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guidelineRegisterRight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.91" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineRegisterRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.91" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

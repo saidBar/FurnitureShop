@@ -4,7 +4,7 @@ data class User(
     val FirstName: String,
     val LastName: String,
     val Email: String,
-    val imagePath: String= ""
-){
-    constructor(): this("","","","")
+    val imagePath: String = ""
+) {
+    constructor() : this("", "", "", "")
 }
